@@ -38,11 +38,12 @@ export async function GET(request: Request) {
   // fetch if X_BEARER_TOKEN is valid
   const query = new URL(request.url).searchParams.get("X_BEARER_TOKEN");
   if (query === process.env.X_BEARER_TOKEN) await setTweets();
+  // return last tweet with tag
   return NextResponse.json(
     lastTweet.data.find((tweet) =>
       tweet.text
         .toLowerCase()
-        .includes((process.env.TAG as string).toLowerCase())
+        .includes((process.env.TAG as string || "bitcoin").toLowerCase())
     )
   );
 }
@@ -57,8 +58,4 @@ const setTweets = async () => {
     },
   }).then((res) => res.json());
   lastTweet = res;
-};
-
-const parseTweets = (message: string) => {
-  return;
 };

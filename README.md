@@ -6,6 +6,11 @@ X_BEARER_TOKEN=AAAAAAAAAAAAAAAOio9C5Li
 TAG=bitcoin
 ```
 
+```bash
+curl http://localhost:3000/mezo?X_BEARER_TOKEN=AAAAAAAAAAAAAAAOio9C5Li
+curl https://metamask-snap-notifi.vercel.app/mezo?X_BEARER_TOKEN=AAAAAAAAAAAAAAAOio9C5Li
+```
+
 ## X API Response
 
 ```json
