@@ -13,7 +13,7 @@ export async function GET(request: Request) {
 
   // return last tweet with tag
   return NextResponse.json(
-    lastTweet.data.find((tweet: any) =>
+    lastTweet.data.find((tweet: { text: string }) =>
       tweet.text
         .toLowerCase()
         .includes(((process.env.TAG as string) || "bitcoin").toLowerCase())
