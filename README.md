@@ -1,9 +1,12 @@
 # MetaMask Snap Notifi
 
 ```
-vi .env
-X_BEARER_TOKEN=AAAAAAAAAAAAAAAOio9C5Li
-TAG=bitcoin
+# .env
+REDIS_URL="redis://default:r634ICgWt1N"
+TAG="bitcoin"
+VERCEL_OIDC_TOKEN="eyJhbGciOiJSaw"
+X_BEARER_TOKEN="AAAAAAAAAAAA"
+API_KEY=AAAAAAAAAAAA
 ```
 
 ```bash
