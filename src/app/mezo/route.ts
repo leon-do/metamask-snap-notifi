@@ -12,13 +12,12 @@ export async function GET(request: Request) {
   console.log(JSON.stringify(lastTweet, null, 2));
 
   // return last tweet with tag
-  return NextResponse.json(
-    lastTweet.data.find((tweet: { text: string }) =>
-      tweet.text
-        .toLowerCase()
-        .includes(((process.env.TAG as string) || " ").toLowerCase())
-    )
+  const response = lastTweet.data.find((tweet: { text: string }) =>
+    tweet.text
+      .toLowerCase()
+      .includes(((process.env.TAG as string) || " ").toLowerCase())
   );
+  return NextResponse.json(response.length ? response : {});
 }
 
 async function getTweets() {
