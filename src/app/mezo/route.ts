@@ -9,14 +9,14 @@ export async function GET(request: Request) {
   // get from redis
   const redis = await createClient({ url: process.env.REDIS_URL }).connect();
   const lastTweet = JSON.parse((await redis.get("mezo")) as string);
-  console.log({ lastTweet });
+  console.log(JSON.stringify(lastTweet, null, 2));
 
   // return last tweet with tag
   return NextResponse.json(
     lastTweet.data.find((tweet: { text: string }) =>
       tweet.text
         .toLowerCase()
-        .includes(((process.env.TAG as string) || "bitcoin").toLowerCase())
+        .includes(((process.env.TAG as string) || " ").toLowerCase())
     )
   );
 }
