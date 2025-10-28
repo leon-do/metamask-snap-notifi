@@ -17,7 +17,7 @@ export async function GET(request: Request) {
       .toLowerCase()
       .includes(((process.env.TAG as string) || " ").toLowerCase())
   );
-  return NextResponse.json(response.length ? response : {});
+  return NextResponse.json(response || {});
 }
 
 async function getTweets() {
